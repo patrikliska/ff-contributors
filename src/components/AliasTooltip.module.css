@@ -1,0 +1,64 @@
+.tooltip {
+  position: fixed;
+  z-index: 9999;
+  background: #0f0f1a;
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  border-radius: 4px;
+  padding: 10px 14px;
+  min-width: 220px;
+  font-size: 1.3rem;
+  line-height: 1.6;
+  animation: fadeIn 0.15s ease;
+  pointer-events: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.header {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 700;
+  margin-bottom: 6px;
+  white-space: nowrap;
+}
+
+.total {
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 400;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.branch {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 1.2rem;
+}
+
+.aliasName {
+  color: rgba(255, 255, 255, 0.65);
+  flex: 1;
+  white-space: nowrap;
+}
+
+.dash {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.commits {
+  color: rgba(0, 240, 255, 0.8);
+  font-weight: 600;
+  text-align: right;
+}

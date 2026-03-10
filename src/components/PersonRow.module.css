@@ -1,0 +1,341 @@
+.wrapper {
+  animation: slideIn 0.4s ease both;
+  position: relative;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ── Main row ─────────────────────────────────────── */
+.row {
+  display: grid;
+  grid-template-columns: 2.2rem 18rem 1fr 4.5rem auto;
+  align-items: center;
+  gap: 0 16px;
+  padding: 10px 0;
+  cursor: default;
+  transition: background 0.15s;
+  border-radius: 4px;
+}
+
+.row:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.rowActive {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.rank {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.2);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.nameWrap {
+  position: relative;
+  white-space: nowrap;
+}
+
+.name {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.85);
+  transition: color 0.15s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+.lastCommit {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.2);
+  display: block;
+  line-height: 1;
+  margin-top: 3px;
+}
+
+.lastCommit::before {
+  content: 'last commit: ';
+  color: rgba(255, 255, 255, 0.12);
+}
+
+.barTrack {
+  height: 9px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  border-radius: 4px;
+  animation: growBar 0.6s ease both;
+  transition: box-shadow 0.15s;
+}
+
+@keyframes growBar {
+  from { width: 0 !important; }
+}
+
+.countWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.count {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+  font-variant-numeric: tabular-nums;
+  transition: color 0.15s;
+  line-height: 1;
+}
+
+.pct {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.25);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+/* ── Edit button ──────────────────────────────────── */
+.editBtn {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.3);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1.5rem;
+  width: 34px;
+  height: 34px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+  flex-shrink: 0;
+}
+
+.editBtn:hover,
+.editBtnActive {
+  border-color: rgba(0, 240, 255, 0.4);
+  color: #00f0ff;
+  background: rgba(0, 240, 255, 0.05);
+}
+
+/* ── Edit panel ───────────────────────────────────── */
+.editPanel {
+  margin: 0 0 10px 2.2rem;
+  padding: 20px 22px;
+  background: rgba(0, 240, 255, 0.03);
+  border: 1px solid rgba(0, 240, 255, 0.1);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  animation: panelIn 0.15s ease;
+}
+
+@keyframes panelIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.editRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.editLabel {
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.25);
+  padding-top: 8px;
+  min-width: 64px;
+  flex-shrink: 0;
+}
+
+/* Rename */
+.renameInput {
+  flex: 1;
+  max-width: 320px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1.4rem;
+  padding: 7px 12px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.renameInput:focus {
+  border-color: rgba(0, 240, 255, 0.4);
+}
+
+.saveBtn {
+  background: none;
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  color: rgba(0, 240, 255, 0.7);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1.3rem;
+  padding: 7px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.saveBtn:hover {
+  border-color: rgba(0, 240, 255, 0.7);
+  color: #00f0ff;
+}
+
+/* Team pills */
+.teamPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.teamPill {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.35);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1.3rem;
+  padding: 6px 16px;
+  border-radius: 99px;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.teamPill:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.teamPillActive {
+  font-weight: 700;
+}
+
+.clearTeam {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.2);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 0 6px;
+  transition: color 0.15s;
+}
+
+.clearTeam:hover {
+  color: rgba(255, 100, 100, 0.8);
+}
+
+/* Alias chips */
+.aliasChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  padding: 5px 12px;
+}
+
+.chipInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.chipName {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.chipEmail {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.chipCommits {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.25);
+  font-variant-numeric: tabular-nums;
+}
+
+.chipRemove {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: color 0.15s;
+}
+
+.chipRemove:hover {
+  color: rgba(255, 80, 80, 0.8);
+}
+
+/* Add alias */
+.addAliasWrap {
+  position: relative;
+}
+
+.addAliasBtn {
+  background: none;
+  border: 1px dashed rgba(0, 240, 255, 0.25);
+  color: rgba(0, 240, 255, 0.6);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1.3rem;
+  padding: 5px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.addAliasBtn:hover {
+  border-color: rgba(0, 240, 255, 0.6);
+  color: #00f0ff;
+}
+
+/* Split */
+.editFooter {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 14px;
+}
+
+.splitBtn {
+  background: none;
+  border: none;
+  color: rgba(255, 150, 50, 0.5);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s;
+}
+
+.splitBtn:hover {
+  color: rgba(255, 150, 50, 0.9);
+}

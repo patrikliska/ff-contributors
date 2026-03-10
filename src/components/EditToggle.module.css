@@ -1,0 +1,44 @@
+.wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.35);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1.4rem;
+  padding: 9px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.active {
+  border-color: rgba(0, 240, 255, 0.4);
+  color: #00f0ff;
+  background: rgba(0, 240, 255, 0.05);
+}
+
+.resetBtn {
+  background: none;
+  border: none;
+  color: rgba(255, 80, 80, 0.45);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s;
+}
+
+.resetBtn:hover {
+  color: rgba(255, 80, 80, 0.9);
+}

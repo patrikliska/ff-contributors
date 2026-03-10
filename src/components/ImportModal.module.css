@@ -1,0 +1,297 @@
+.triggerBtn {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.35);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.4rem;
+  padding: 9px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+.triggerBtn:hover {
+  border-color: rgba(0, 240, 255, 0.4);
+  color: rgba(0, 240, 255, 0.8);
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.15s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.modal {
+  background: #0f0f1a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  width: 660px;
+  max-width: calc(100vw - 40px);
+  max-height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.8);
+  animation: slideUp 0.15s ease;
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 28px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  flex-shrink: 0;
+}
+.title {
+  font-size: 1.3rem;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.4);
+}
+.closeBtn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: color 0.15s;
+}
+.closeBtn:hover { color: rgba(255, 255, 255, 0.8); }
+
+.body {
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Instructions */
+.instructions {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.3);
+  flex-wrap: wrap;
+}
+.step {
+  background: rgba(0, 240, 255, 0.1);
+  color: rgba(0, 240, 255, 0.6);
+  border-radius: 50%;
+  width: 1.8rem;
+  height: 1.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.cmdRow {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  width: 100%;
+  margin-top: 6px;
+}
+
+.cmd {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 5px;
+  padding: 8px 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.2rem;
+  color: #00f0ff;
+  user-select: all;
+}
+
+.downloadBtn {
+  background: none;
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  color: rgba(0, 240, 255, 0.6);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.2rem;
+  padding: 8px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+  flex-shrink: 0;
+}
+.downloadBtn:hover {
+  border-color: #00f0ff;
+  color: #00f0ff;
+  background: rgba(0, 240, 255, 0.05);
+}
+.inline {
+  font-family: 'JetBrains Mono', monospace;
+  color: rgba(0, 240, 255, 0.7);
+  font-size: 1.2rem;
+}
+
+/* Drop zone */
+.dropZone {
+  border: 2px dashed rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 28px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  user-select: none;
+}
+.dropZone:hover {
+  border-color: rgba(0, 240, 255, 0.3);
+  background: rgba(0, 240, 255, 0.02);
+}
+.dropZoneActive {
+  border-color: rgba(0, 240, 255, 0.6);
+  background: rgba(0, 240, 255, 0.04);
+}
+.dropZoneSuccess {
+  border-color: rgba(0, 240, 255, 0.4);
+  border-style: solid;
+  background: rgba(0, 240, 255, 0.03);
+}
+.fileInput {
+  display: none;
+}
+.dropHint {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.2);
+}
+.dropSuccess {
+  font-size: 1.4rem;
+  color: rgba(0, 240, 255, 0.8);
+}
+.dropMeta {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.error {
+  font-size: 1.2rem;
+  color: rgba(255, 80, 80, 0.8);
+  padding: 8px 12px;
+  background: rgba(255, 80, 80, 0.06);
+  border: 1px solid rgba(255, 80, 80, 0.2);
+  border-radius: 5px;
+}
+
+/* Preview */
+.preview {
+  border: 1px solid rgba(0, 240, 255, 0.15);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.previewHeader {
+  background: rgba(0, 240, 255, 0.05);
+  padding: 8px 14px;
+  font-size: 1.2rem;
+  color: rgba(0, 240, 255, 0.6);
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid rgba(0, 240, 255, 0.1);
+}
+.previewList {
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 4px 0;
+}
+.previewRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 14px;
+}
+.previewCommits {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.25);
+  font-variant-numeric: tabular-nums;
+  min-width: 28px;
+  text-align: right;
+  flex-shrink: 0;
+}
+.previewInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex: 1;
+  min-width: 0;
+}
+.previewName {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.7);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.previewEmail {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.previewDate {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.2);
+  flex-shrink: 0;
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 28px 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  flex-shrink: 0;
+}
+.cancelBtn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.25);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 6px 4px;
+  transition: color 0.15s;
+}
+.cancelBtn:hover { color: rgba(255, 255, 255, 0.6); }
+.cancelBtn:disabled { opacity: 0.3; cursor: default; }
+
+.confirmBtn {
+  background: none;
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  color: rgba(0, 240, 255, 0.8);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.4rem;
+  padding: 9px 22px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+  white-space: nowrap;
+}
+.confirmBtn:hover:not(:disabled) {
+  border-color: #00f0ff;
+  color: #00f0ff;
+  background: rgba(0, 240, 255, 0.05);
+}
+.confirmBtn:disabled { opacity: 0.3; cursor: default; }

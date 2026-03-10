@@ -1,0 +1,30 @@
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn {
+  background: none;
+  border: none;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s;
+}
+
+.btn:hover {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.btn.active {
+  color: #00f0ff;
+  font-weight: 700;
+}
+
+.sep {
+  color: rgba(255, 255, 255, 0.15);
+  font-size: 1.2rem;
+}

@@ -1,0 +1,19 @@
+.btn {
+  display: block;
+  margin: 16px auto 0;
+  background: none;
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  color: rgba(0, 240, 255, 0.6);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1.2rem;
+  padding: 8px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+
+.btn:hover {
+  border-color: rgba(0, 240, 255, 0.6);
+  color: #00f0ff;
+  background: rgba(0, 240, 255, 0.05);
+}
